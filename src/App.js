@@ -8,6 +8,7 @@ import Competitions from './pages/Competitons';
 import Login from './components/Login';
 import Signup from './components/Signup';
 import Dashboard from './components/Dashboard';
+import CompetitionsDetails from './components/CompetitonDetails';
 
 
 function App () {
@@ -20,6 +21,7 @@ function App () {
           <Route exact path="/login" component={Login} />
           <Route exact path="/register" component={Signup} />
           <Route exact path="/dashboard" component={Dashboard} />
+          <Route exact path="/competitions/:id" component={CompetitionsDetails} />
         </Switch>
       </Layout>
     </>
