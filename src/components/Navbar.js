@@ -5,7 +5,6 @@ import Container from 'react-bootstrap/Container'
 import logo from "../assets/imgs/palmtree.png"
 
 const Navigation = () => {
-
   return (
     <Navbar collapseOnSelect expand="lg" bg="black" variant="black">
       <Container>
@@ -19,7 +18,7 @@ const Navigation = () => {
           />{' '}
         Paradise Competitions
       </Navbar.Brand>
-        <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+        <Navbar.Toggle style={{color:'white'}} aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav" className="justify-content-end">
           <Nav>
             <Nav.Link href="/">Home</Nav.Link>
