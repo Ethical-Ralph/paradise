@@ -6,7 +6,7 @@ import Ticket from './Ticket'
 
 
 
-const CompetitionDetails = ({ match, competitionss, getCompetition }) => {
+const CompetitionDetails = ({ match, competition, getCompetition }) => {
   const [ticket, setTicket] = useState(null)
 
   useEffect(() => {
@@ -17,8 +17,7 @@ const CompetitionDetails = ({ match, competitionss, getCompetition }) => {
     fetchData()
   },[]) 
 
-  const competition = {"id":6,"net_price":28.93,"associated_product":{"id":2,"title":"Tech Tech Tech","image":"/media/ecards/fixcomputers.jpg"},"groups":["Halloween Special"],"prize_to_win":{"title":"Brand New Iphone","image":"/media/TCTM1.png"},"title":"This is a new Competition","slug":"this-is-a-new-competition","date_created":"2020-07-05T21:59:34.458196Z","isFeatured":true,"isActive":true,"description":"gh jtjj rhtjyt htjyt htjy","expiration_date":"2020-07-22T18:00:00Z","price":"34.00","discount_price":"28.93","discount_text":"Free Day","allow_discount":true,"no_of_winners":1}
-
+  
   return (
     <>
     <div>
