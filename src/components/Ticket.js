@@ -29,8 +29,7 @@ const Ticket  = ({setTicket}) => {
         setSelectedLetter(randomLet)
         const randomNum = numbers()[Math.floor(Math.random()*99)]
         const ticket = String(randomLet + randomNum)
-        setTicket(ticket)
-        setTicketClicked(ticket)
+        ticketHanlder(ticket)
     }
 
     return (
