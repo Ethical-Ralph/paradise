@@ -12,7 +12,7 @@ const initialState = {
   error: null,
   success: false,
   all: [],
-  competition: {},
+  competition: null,
   featuredCompetition: []
 }
 

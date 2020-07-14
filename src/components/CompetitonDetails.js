@@ -22,7 +22,9 @@ const CompetitionDetails = ({ match, competition, getCompetition }) => {
     <>
     <div>
       <h3>Prices</h3>
-      <img src={competition.associated_product.image} alt={competition.associated_product.image} />
+      {
+        competition && <>
+              <img src={competition.associated_product.image} alt={'image'} />
       <div>677 left</div>
       <ProgressBar now={77} label={'77%'} animated/>
       <h3>Description</h3>
@@ -44,6 +46,9 @@ const CompetitionDetails = ({ match, competition, getCompetition }) => {
       <div>First click a letter, then cjoose a number. Repeat this in case you want more tickets.<br/>
        Our Lucky Dip makes a random choice.</div>
        <Ticket setTicket={setTicket}/>
+        </>
+      }
+
     </div>
     </>
   )
