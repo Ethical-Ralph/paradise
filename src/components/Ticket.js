@@ -43,7 +43,7 @@ const Ticket  = ({setTicket, ticketLetterStart, ticketLetterEnd, ticketsPerLette
         setSelectedLetter(randomLet)
         const randomNum = numbers()[Math.floor(Math.random() *  totalTicket)]
         const ticket = String(randomLet + randomNum)
-        ticketHanlder(ticket)
+        ticketHandler(ticket)
     }
 
     return (
@@ -62,7 +62,7 @@ const Ticket  = ({setTicket, ticketLetterStart, ticketLetterEnd, ticketsPerLette
                         selectedLetter && numbers().map((val,i) => {
                             let ticket = String(selectedLetter + val)
                             return (
-                                <button style={{background: ticket === ticketClicked && 'red'}}  key={ticket} onClick={() => ticketHanlder(ticket)}>{ticket}</button>
+                                <button style={{background: ticket === ticketClicked && 'red'}}  key={ticket} onClick={() => ticketHandler(ticket)}>{ticket}</button>
                             )
                         })
                     }
