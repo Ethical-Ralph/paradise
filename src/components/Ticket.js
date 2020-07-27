@@ -1,20 +1,34 @@
 import React, { useState } from 'react';
 
-const Ticket  = ({setTicket}) => {
+const Ticket  = ({setTicket, ticketLetterStart, ticketLetterEnd, ticketsPerLetter}) => {
     const [selectedLetter, setSelectedLetter ] = useState(null)
     const [ticketClicked, setTicketClicked ] = useState(null)
+    const start = ticketLetterStart.charCodeAt()
+    const end = ticketLetterEnd.charCodeAt()
+    const totalTicket = ticketsPerLetter - 1
+
     const albt = () => {
         let letters = []
-        for (var i = 65; i <= 90; i++){
+        
+        for (var i = start; i <= end; i++){
             letters.push(String.fromCharCode(i))
         }
         return letters
     }
 
+    const padZero = (str, len) => {
+        var s= String(str), c = '0';
+        while(s.length< len) s= c+ s;
+        return s;
+    }
+
     const numbers = () => {
         let num = []
-        for (var i = 0; i <= 99; i++) {
-            num.push(i)
+        const pad = totalTicket <= 99 ? "2" : "3"
+        for (var i = 0; i <= totalTicket; i++) {
+            num.push(
+                padZero(i, pad)
+            )
         }
         return num
     }
@@ -25,9 +39,9 @@ const Ticket  = ({setTicket}) => {
     }
 
     const luckyDip = () => {
-        const randomLet = albt()[Math.floor(Math.random()*26)]
+        const randomLet = albt()[Math.floor(Math.random() * albt().length)]
         setSelectedLetter(randomLet)
-        const randomNum = numbers()[Math.floor(Math.random()*99)]
+        const randomNum = numbers()[Math.floor(Math.random() *  totalTicket)]
         const ticket = String(randomLet + randomNum)
         ticketHanlder(ticket)
     }

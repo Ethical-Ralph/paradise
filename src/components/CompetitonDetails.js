@@ -45,9 +45,17 @@ const CompetitionDetails = ({ match, competition, getCompetition }) => {
       <div>Select Your ticket</div>
       <div>First click a letter, then cjoose a number. Repeat this in case you want more tickets.<br/>
        Our Lucky Dip makes a random choice.</div>
-       <Ticket setTicket={setTicket}/>
+
+       <Ticket 
+        setTicket={setTicket}
+        ticketLetterStart={competition.ticket_letter_start}
+        ticketLetterEnd={competition.ticket_letter_end}
+        ticketsPerLetter={competition.tickets_per_letter}
+        />
         </>
       }
+      
+
 
     </div>
     </>
