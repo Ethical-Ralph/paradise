@@ -33,7 +33,7 @@ const Ticket  = ({setTicket, ticketLetterStart, ticketLetterEnd, ticketsPerLette
         return num
     }
 
-    const ticketHanlder = (ticket) => {
+    const ticketHandler = (ticket) => {
         setTicket(ticket)
         setTicketClicked(ticket)
     }
