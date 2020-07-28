@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import { connect } from 'react-redux';
 import { getCompetition } from '../Redux/competitions/competitionAction'
+import { addCompetition } from '../Redux/cart/cartActions'
 import { ProgressBar } from 'react-bootstrap';
 import Ticket from './Ticket'
 
 
 
-const CompetitionDetails = ({ match, competition, getCompetition }) => {
+const CompetitionDetails = ({ match, competition, getCompetition, addCompetition }) => {
   const [ticket, setTicket] = useState(null)
 
   useEffect(() => {
@@ -17,21 +18,30 @@ const CompetitionDetails = ({ match, competition, getCompetition }) => {
     fetchData()
   },[]) 
 
-  
+  const addTCart = (...data) => {
+    if(!!localStorage.getItem('isLoggedIn')) {
+      if(!ticket) return alert('Please select a ticket')
+      addCompetition(...data)
+      alert('booked')
+    } else {
+      alert('Please Login')
+    }
+  }
+
   return (
     <>
     <div>
       <h3>Prices</h3>
       {
         competition && <>
-              <img src={competition.associated_product.image} alt={'image'} />
-      <div>677 left</div>
-      <ProgressBar now={77} label={'77%'} animated/>
-      <h3>Description</h3>
-      <div>Title: {competition.title}</div>
-      <div>
-        <h6>Groups</h6>
-        <ul>
+          <img src={competition.associated_product.image} alt={'image'} />
+            <div>677 left</div>
+            <ProgressBar now={77} label={'77%'} animated/>
+            <h3>Description</h3>
+            <div>Title: {competition.title}</div>
+          <div>
+          <h6>Groups</h6>
+          <ul>
         {
           competition.groups.map((val,i)=>(
             <li>{val}</li>
@@ -52,6 +62,8 @@ const CompetitionDetails = ({ match, competition, getCompetition }) => {
         ticketLetterEnd={competition.ticket_letter_end}
         ticketsPerLetter={competition.tickets_per_letter}
         />
+
+        <button onClick={() => addTCart(competition.id, ticket)}>BookNow</button>
         </>
       }
       
@@ -69,7 +81,8 @@ const mapStateToProps = (state) => {
 }
 
 const mapDispatchToProps = {
-  getCompetition
+  getCompetition,
+  addCompetition
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(CompetitionDetails);

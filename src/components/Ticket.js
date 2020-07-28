@@ -18,7 +18,7 @@ const Ticket  = ({setTicket, ticketLetterStart, ticketLetterEnd, ticketsPerLette
 
     const padZero = (str, len) => {
         var s= String(str), c = '0';
-        while(s.length< len) s= c+ s;
+        while(s.length < len) s = c + s;
         return s;
     }
 
