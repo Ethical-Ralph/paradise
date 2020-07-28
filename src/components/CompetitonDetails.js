@@ -34,7 +34,7 @@ const CompetitionDetails = ({ match, competition, getCompetition, addCompetition
       <h3>Prices</h3>
       {
         competition && <>
-          <img src={competition.associated_product.image} alt={'image'} />
+          <img src={`https://paradisebackend.herokuapp.com${competition.prize_to_win.image}`} alt={'image'} />
             <div>677 left</div>
             <ProgressBar now={77} label={'77%'} animated/>
             <h3>Description</h3>

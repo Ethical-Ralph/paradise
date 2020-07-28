@@ -62,7 +62,7 @@ export const removeCompetition = (id) => {
                 return dispatch(addToCartSuccess(myCart))
             })
             .catch((error) => {
-                alert(error.message ? error.message : "An error occurred")
+                // alert(error.message ? error.message : "An error occurred")
                 dispatch(errorOccurred(error))
             })
     }
