@@ -9,11 +9,10 @@ const Cart = ({ cart, fetchCart, removeCompetition }) => {
         fetchCart()
     }, [])
 
-    useEffect(() => {
         const autoRemove = setInterval(() => 
             cart.forEach((val, index) => {
                 console.log('running')
-                const itemExpTime = new Date(val.date_added).setMinutes(3)
+                const itemExpTime = new Date(val.date_added).setMinutes(1)
                 const currentTime = new Date().getTime()
                 console.log(itemExpTime <= currentTime)
                 if(itemExpTime <= currentTime) {
@@ -22,8 +21,8 @@ const Cart = ({ cart, fetchCart, removeCompetition }) => {
                 }
             }), 1000
         )
+
         if(cart.length === 0 ) clearInterval(autoRemove)
-    })
 
     return (
         <Table striped bordered hover>
