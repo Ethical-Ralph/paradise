@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { connect } from 'react-redux';
+import Countdown from 'react-countdown';
 import { getCompetition } from '../Redux/competitions/competitionAction'
 import { addCompetition } from '../Redux/cart/cartActions'
 import { ProgressBar } from 'react-bootstrap';
@@ -34,7 +35,14 @@ const CompetitionDetails = ({ match, competition, getCompetition, addCompetition
       <h3>Prices</h3>
       {
         competition && <>
-          <img src={`https://paradisebackend.herokuapp.com${competition.prize_to_win.image}`} alt={'image'} />
+        <div>
+        <img src={`https://paradisebackend.herokuapp.com${competition.prize_to_win.image}`} alt={'image'} />
+        <b>
+        <Countdown
+          date={competition.expiration_date}
+        />
+        </b>
+        </div>
             <div>677 left</div>
             <ProgressBar now={77} label={'77%'} animated/>
             <h3>Description</h3>

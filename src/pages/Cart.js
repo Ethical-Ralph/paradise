@@ -3,27 +3,29 @@ import { connect }  from 'react-redux'
 import { fetchCart, removeCompetition } from '../Redux/cart/cartActions'
 import { Table } from 'react-bootstrap';
 
-const Cart = ({ cart, fetchCart, removeCompetition }) => {  
+const Cart = ({ cart, fetchCart, removeCompetition }) => {
+    
 
     useEffect(() => {
         fetchCart()
+        console.log(cart.length,'ffff')
     }, [])
 
     useEffect(() => {
-        const autoRemove = setInterval(() => 
-            cart.forEach((val, index) => {
-                console.log('running')
-                const itemExpTime = new Date(val.date_added).setMinutes(1)
+        const autoRemove = setInterval(() => {
+            for (var i = 0; i < cart.length; i++) {
+                const itemExpTime = new Date(cart[i].date_added).setMinutes(3)
                 const currentTime = new Date().getTime()
                 console.log(itemExpTime <= currentTime)
                 if(itemExpTime <= currentTime) {
-                    console.log('removing')
-                    removeCompetition(val.id)
+                    removeCompetition(cart[i].id)
                 }
-            }), 1000
-        )
-        if(cart.length === 0 ) clearInterval(autoRemove)
-    })
+            }
+        }, 1000)
+        return () => clearInterval(autoRemove)
+    }, [cart])
+
+
 
     return (
         <Table striped bordered hover>
