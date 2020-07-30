@@ -60,7 +60,6 @@ const formatData = (data) => {
     let obj = {};
     obj.type = data[`media_${i}_type`];
     obj.media = data[`media_${i}`];
-    console.log(obj);
     arr.push(obj);
   }
   return arr;

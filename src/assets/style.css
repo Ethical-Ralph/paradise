@@ -1,0 +1,96 @@
+/* GLOBAL STYLES
+-------------------------------------------------- */
+/* Padding below the footer and lighter body text */
+
+body {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  /*color: #768776;*/
+}
+
+
+/* CUSTOMIZE THE CAROUSEL
+-------------------------------------------------- */
+
+/* Carousel base class */
+.carousel {
+  margin-bottom: 4rem;
+}
+/* Since positioning the image, we need to help out the caption */
+.carousel-caption {
+  bottom: 8rem;
+  z-index: 10;
+}
+
+/* Declare heights because of positioning of img element */
+.main-carousel {
+  height: 32rem;
+}
+.main-carousel > img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  min-width: 100%;
+  height: 32rem;
+}
+
+/* RESPONSIVE CSS
+-------------------------------------------------- */
+
+@media (min-width: 40em) {
+  /* Bump up size of carousel content */
+  .carousel-caption p {
+    margin-bottom: 1.25rem;
+    font-size: 1.25rem;
+    line-height: 1.4;
+  }
+}
+
+/* stylelint-disable selector-list-comma-newline-after */
+
+.display-4 {
+  font-size: 2.5rem;
+}
+@media (min-width: 768px) {
+  .display-4 {
+    font-size: 3rem;
+  }
+}
+
+.card-img-right {
+  height: 100%;
+  border-radius: 0 3px 3px 0;
+}
+
+.flex-auto {
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+}
+
+.h-250 { height: 250px; }
+@media (min-width: 768px) {
+  .h-md-250 { height: 250px; }
+}
+
+/*
+ * Page posts
+ */
+.page-post {
+  margin-bottom: 4rem;
+}
+.page-post-title {
+  margin-bottom: .25rem;
+  font-size: 2.5rem;
+}
+.page-post-meta {
+  margin-bottom: 1.25rem;
+  color: #999;
+}
+
+/*
+ * button
+ */
+.rounded-curve{
+  border-radius: 50px;
+  color: black;
+}
