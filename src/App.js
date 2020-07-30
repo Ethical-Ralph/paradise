@@ -11,7 +11,8 @@ import Dashboard from "./components/Dashboard";
 import CompetitionsDetails from "./components/CompetitonDetails";
 import PrivateRoute from "./components/PrivateRoute";
 import Cart from "./pages/Cart";
-import LiveDraw from "./components/LiveDrawList";
+import LiveDrawList from "./components/LiveDrawList";
+import LiveDraw from "./pages/LiveDrawVideo";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
           <Route exact path="/dashboard" component={Dashboard} />
           <Route path="/competitions/:id" component={CompetitionsDetails} />
           <PrivateRoute exact path="/cart" component={Cart} />
+          <Route exact path="/live-draw/" component={LiveDrawList} />
           <Route exact path="/live-draw/:id" component={LiveDraw} />
         </Switch>
       </Layout>
