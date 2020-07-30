@@ -5,6 +5,7 @@ import { getCompetition } from "../Redux/competitions/competitionAction";
 import { addCompetition } from "../Redux/cart/cartActions";
 import { ProgressBar } from "react-bootstrap";
 import Ticket from "./Ticket";
+import CompetitionMedia from "./CompetitionMedia";
 
 const CompetitionDetails = ({
   match,
@@ -41,10 +42,11 @@ const CompetitionDetails = ({
         {competition && (
           <>
             <div>
-              <img
+              {/* <img
                 src={`https://paradisebackend.herokuapp.com${competition.prize_to_win.image}`}
                 alt={`${competition.title}`}
-              />
+              /> */}
+              <CompetitionMedia mediaDetails={competition.prize_to_win} />
               <b>
                 <Countdown date={competition.expiration_date} />
               </b>

@@ -14,10 +14,11 @@ const LiveDraws = ({ competitions }) => {
           <Col md="6" lg="3" key={val.id}>
             <Card className="competition">
               <Card.Body>
-                <Card.Text>Live Draw In</Card.Text>
+                <Card.Text>Live Draw In:</Card.Text>
                 <Card.Text>
                   <Countdown date={val.expiration_date} />
                 </Card.Text>
+                <Card.Text>Days Hrs Min Sec</Card.Text>
               </Card.Body>
               <Card.Img
                 variant="top"
