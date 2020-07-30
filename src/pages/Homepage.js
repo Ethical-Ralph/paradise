@@ -16,7 +16,6 @@ const Homepage = () => {
       <Winners />
       <CustomerSatisfation />
       <GiftShop />
-      <LiveDrawList />
     </>
   );
 };

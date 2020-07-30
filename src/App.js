@@ -2,8 +2,6 @@ import React from "react";
 import { Switch, Route } from "react-router-dom";
 import Layout from "./components/Layout";
 import Homepage from "./pages/Homepage";
-import "bootstrap/dist/css/bootstrap.min.css";
-import "./assets/main.css";
 import Competitions from "./pages/Competitons";
 import Login from "./components/Login";
 import Signup from "./components/Signup";

@@ -1,57 +1,30 @@
-import React from 'react'
+import React from "react";
 import youtube from "../assets/imgs/youtube-brands.svg";
 import telegram from "../assets/imgs/telegram-brands.svg";
 import facebook from "../assets/imgs/facebook-brands.svg";
 import paradise from "../assets/imgs/palmtree.png";
-import Button from 'react-bootstrap/Button'
+import Button from "react-bootstrap/Button";
 
 const Footer = () => {
   return (
-    <div className="footer">
-      <div className="find-us">
-        <h3>
-          Find us on
-        </h3>
-
-        <div className="">
-          <img
-            src={youtube}
-            alt="youtube"
-            width="40px"
-            height="40px"
-          />
-          <img
-            src={telegram}
-            alt="youtube"
-            width="40px"
-            height="40px"
-          />
-          <img
-            src={facebook}
-            alt="youtube"
-            width="40px"
-            height="40px"
-          />
-        </div>
-        <div>
-          <img
-            src={paradise}
-            alt="paradise"
-            height="90px"
-          />
-        </div>
-        <Button variant="light" style={{ padding: '0 9rem', fontWeight: 'bold', borderRadius: '30px' }}>FAQ</Button>
-        <h3>
-          Payment methods
-        </h3>
-        <div>
-          payments icon here
-        </div>
-        <div>Dummy lorem text here</div>
-        <div> footer credit here </div>
-      </div>
-    </div>
-  )
-}
+    <footer class="container">
+      <p>
+        Copyright &copy; 2020 Paradise Competitions
+        <span>All right reserved</span>
+        <span>
+          <a href="mailto:info@paradisecompetitions.eu">
+            info@paradisecompetitions.eu
+          </a>
+        </span>
+        <span>
+          <a href="tel:0834999160">0834 999 160</a>
+        </span>
+        <span>
+          <a href="#">Terms and Conditions</a>
+        </span>
+      </p>
+    </footer>
+  );
+};
 
 export default Footer;

@@ -24,10 +24,15 @@ const LandCarousel = ({ featured, getFeatured }) => {
             alt="First slide"
           />
           <Carousel.Caption>
-            <Link to={`/competitions/${val.id}`}>
-              <h3>{val.title}</h3>
-              <p>{val.description}</p>
-            </Link>
+            <h1>{val.title}</h1>
+            <p>
+              <Link
+                to={`/competitions/${val.id}`}
+                className="btn btn-success rounded-curve"
+              >
+                Enter Now
+              </Link>
+            </p>
           </Carousel.Caption>
         </Carousel.Item>
       ))}

@@ -1,57 +1,63 @@
-import React, { useEffect } from 'react';
-import  { Link } from 'react-router-dom';
-import Header from '../components/Heading'
-import {
-  Row,
-  Card,
-  Col,
-} from "react-bootstrap";
-import { getCompetitions } from '../Redux/competitions/competitionAction'
-import { connect } from 'react-redux'
+import React, { useEffect } from "react";
+import { Link } from "react-router-dom";
+import Header from "../components/Heading";
+import { Row, Card, Col } from "react-bootstrap";
+import { getCompetitions } from "../Redux/competitions/competitionAction";
+import { connect } from "react-redux";
 
 const Competitions = ({ competitions, getCompetitions }) => {
-
   useEffect(() => {
-    getCompetitions()
-  }, [])
+    getCompetitions();
+  }, []);
 
   return (
     <>
-      <Header
-        text="Active Competitions"
-      />
-      <Row>
-        {
-          competitions.map((val, i) => (
-            <Col md="6" lg="3" key={val.id}>
-            <Link to={`/competitions/${val.id}`}>
-              <Card className="competition">
-                <Card.Img variant="top" src={val.associated_product.image} height="100" width="180" />
-                <Card.Body>
-                  <Card.Title>{val.title}</Card.Title>
-                    <Card.Text>
-                      {val.price}
-                    </Card.Text>
-                </Card.Body>
-              </Card>
-            </Link>
-            </Col>
-          ))
-        }
-      </Row>
-
+      <div class="row">
+        <div class="col-md-12 blog-main">
+          <div class="page-post">
+            <h2 class="page-post-title pb-4 pt-4 mt-4 mb-4 active-p">
+              Active Competitions
+            </h2>
+          </div>
+        </div>
+        {competitions.map((val, i) => (
+          <div class="col-md-3">
+            <div class="card text-white bg-secondary mb-4 shadow-sm">
+              <img
+                class="card-img-top"
+                src={val.associated_product.image}
+                alt="paradise logo"
+                height="160"
+              />
+              <div class="card-body text-center">
+                <h5 class="card-text">
+                  <Link
+                    to={`/competitions/${val.id}`}
+                    style={{ color: "white" }}
+                  >
+                    {val.title}
+                  </Link>
+                </h5>
+                <div class="justify-content-between align-items-center">
+                  <p>$ {val.price}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
     </>
-  )
+  );
 };
 
 const mapStateToProps = (state) => {
   return {
-    competitions: state.competition.all || []
-  }
-}
+    competitions: state.competition.all || [],
+  };
+};
 
 const mapDispatchToProps = {
-  getCompetitions
-}
+  getCompetitions,
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(Competitions);
