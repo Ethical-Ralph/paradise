@@ -5,6 +5,7 @@ import Competitions from './Competitons';
 import Winners from '../components/Winners';
 import CustomerSatisfation from '../components/CustomerSatisfation';
 import GiftShop from '../components/GiftShop';
+import LiveDrawList from '../components/LiveDrawList';
 
 const Homepage = () => {
   return (
@@ -15,6 +16,7 @@ const Homepage = () => {
       <Winners />
       <CustomerSatisfation />
       <GiftShop />
+      <LiveDrawList/>
     </>
   );
 }
