@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import Navbar from "react-bootstrap/Navbar";
 import { connect } from "react-redux";
 import Nav from "react-bootstrap/Nav";
@@ -10,10 +11,10 @@ const Navigation = ({ cartLength }) => {
     <header class="blog-header py-2">
       <div class="row flex-nowrap justify-content-between align-items-center mb-5">
         <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark justify-content-center">
-          <a class="navbar-brand active-p" href="./">
+          <Link class="navbar-brand active-p" href="/">
             <img src={logo} alt="paradise logo" height="70" width="70" />{" "}
             Paradise Competitions
-          </a>
+          </Link>
           <button
             class="navbar-toggler"
             type="button"
@@ -23,7 +24,7 @@ const Navigation = ({ cartLength }) => {
             aria-expanded="false"
             aria-label="Toggle navigation"
           >
-            <span class="navbar-toggler-icon"></span>
+            <span className="navbar-toggler-icon"></span>
           </button>
           <div
             class="collapse navbar-collapse"
@@ -32,75 +33,79 @@ const Navigation = ({ cartLength }) => {
           >
             <ul class="navbar-nav">
               <li class="nav-item active">
-                <a class="nav-link" href="/">
+                <Link class="nav-link" to="/">
                   Home <span class="sr-only">(current)</span>
-                </a>
+                </Link>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">
+              <li className="nav-item">
+                <Link className="nav-link" to="/competitions">
                   Competitions
-                </a>
+                </Link>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">
+                <Link class="nav-link" to="/#howtowin">
                   How to play
-                </a>
+                </Link>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">
+                <Link class="nav-link" to="/live-draw">
                   Live Draws
-                </a>
+                </Link>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">
+                <Link class="nav-link" to="'podium">
                   Podium
-                </a>
+                </Link>
               </li>
-              <li class="nav-item dropdown">
-                <a
-                  class="nav-link dropdown-toggle mr-md-2"
-                  href="#"
+              {/* <li class="nav-item dropdown">
+                <Link
+                  className="nav-link dropdown-toggle mr-md-2"
+                  to="#"
                   id="bd-versions"
                   data-toggle="dropdown"
                   aria-haspopup="true"
                   aria-expanded="false"
                 >
                   🇬🇧 EN
-                </a>
+                </Link>
                 <div
-                  class="dropdown-menu dropdown-menu-md-right"
+                  className="dropdown-menu dropdown-menu-md-right"
                   aria-labelledby="bd-versions"
                 >
-                  <a class="dropdown-item active" href="/docs/4.5/">
+                  <Link class="dropdown-item active" to="/docs/4.5/">
                     Latest (4.5.x)
-                  </a>
+                  </Link>
                   <div class="dropdown-divider"></div>
-                  <a
+                  <Link
                     class="dropdown-item"
                     href="https://getbootstrap.com/docs/3.4/"
                   >
                     v3.4.1
-                  </a>
-                  <a
+                  </Link>
+                  <Link
                     class="dropdown-item"
                     href="https://getbootstrap.com/2.3.2/"
                   >
                     v2.3.2
-                  </a>
+                  </Link>
                   <div class="dropdown-divider"></div>
-                  <a class="dropdown-item" href="/docs/versions/">
+                  <Link class="dropdown-item" href="/docs/versions/">
                     All versions
-                  </a>
+                  </Link>
                 </div>
-              </li>
+              </li>*/}
             </ul>
             <div class="mt-2 mt-md-0">
-              <button class="btn btn-success rounded-curve" type="submit">
-                Client Login
-              </button>
-              <button class="btn btn-light rounded-curve" type="submit">
-                Register
-              </button>
+              <Link to="/login">
+                <button class="btn btn-success rounded-curve" type="submit">
+                  Client Login
+                </button>
+              </Link>
+              <Link to="/register">
+                <button class="btn btn-light rounded-curve" type="submit">
+                  Register
+                </button>
+              </Link>
             </div>
           </div>
         </nav>

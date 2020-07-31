@@ -7,7 +7,7 @@ import Card from "react-bootstrap/Card";
 const HowItWorks = () => {
   return (
     <>
-      <div class="row">
+      <div class="row" id="howtowin">
         <div class="col-md-12 blog-main">
           <div class="page-post">
             <h2 class="page-post-title pb-4 mb-4 active-p">How It Works</h2>
