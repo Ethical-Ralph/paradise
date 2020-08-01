@@ -1,41 +1,57 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import Header from "../components/Heading";
 import { Row, Card, Col } from "react-bootstrap";
 import { connect } from "react-redux";
 import Countdown from "react-countdown";
+import { getCompetitions } from "../Redux/competitions/competitionAction";
 
-const LiveDraws = ({ competitions }) => {
+const LiveDraws = ({ competitions, getCompetitions }) => {
+  useEffect(() => {
+    getCompetitions();
+  }, []);
   return (
     <>
-      <Header text="LiveDraws" />
-      <Row>
+      <div class="row">
+        <div class="col-md-12 blog-main">
+          <div class="page-post">
+            <h2 class="page-post-title pb-4 pt-4 mt-4 mb-4 active-p">
+              LiveDraws
+            </h2>
+          </div>
+        </div>
         {competitions.map((val, i) => (
-          <Col md="6" lg="3" key={val.id}>
-            <Card className="competition">
-              <Card.Body>
-                <Card.Text>Live Draw In:</Card.Text>
-                <Card.Text>
+          <div class="col-md-3">
+            <div class="card text-white bg-secondary mb-4 shadow-sm">
+              <div class="card-body text-center">
+                <h5 class="card-text">Live Draw In:</h5>
+                <div class="justify-content-between align-items-center">
                   <Countdown date={val.expiration_date} />
-                </Card.Text>
-                <Card.Text>Days Hrs Min Sec</Card.Text>
-              </Card.Body>
-              <Card.Img
-                variant="top"
+                </div>
+                <div class="justify-content-between align-items-center">
+                  Days Hrs Min Se
+                </div>
+              </div>
+              <img
+                class="card-img-top"
                 src={val.associated_product.image}
-                height="100"
-                width="180"
+                alt="paradise logo"
+                height="160"
               />
-              <Link to={`/live-draw/${val.id}`}>
-                <Card.Body>
-                  <Card.Title>{val.title}</Card.Title>
-                  <Card.Text>{val.price}</Card.Text>
-                </Card.Body>
-              </Link>
-            </Card>
-          </Col>
+              <div class="card-body text-center">
+                <h5 class="card-text">
+                  <Link to={`/live-draw/${val.id}`} style={{ color: "white" }}>
+                    {val.title}
+                  </Link>
+                </h5>
+                <div class="justify-content-between align-items-center">
+                  <p>$ {val.price}</p>
+                </div>
+              </div>
+            </div>
+          </div>
         ))}
-      </Row>
+      </div>
     </>
   );
 };
@@ -46,4 +62,8 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps)(LiveDraws);
+const mapDispatchToProps = {
+  getCompetitions,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(LiveDraws);

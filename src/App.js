@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Switch, Route } from "react-router-dom";
 import Layout from "./components/Layout";
 import Homepage from "./pages/Homepage";
@@ -9,10 +9,18 @@ import Dashboard from "./components/Dashboard";
 import CompetitionsDetails from "./components/CompetitonDetails";
 import PrivateRoute from "./components/PrivateRoute";
 import Cart from "./pages/Cart";
+import { connect } from "react-redux";
 import LiveDrawList from "./components/LiveDrawList";
 import LiveDraw from "./pages/LiveDrawVideo";
+import "./assets/dist/css/bootstrap.css";
+import { fetchCart } from "./Redux/cart/cartActions";
 
-function App() {
+function App({ isLoggedIn, fetchCart }) {
+  useEffect(() => {
+    if (isLoggedIn) {
+      fetchCart();
+    }
+  }, [isLoggedIn]);
   return (
     <>
       <Layout>
@@ -24,12 +32,21 @@ function App() {
           <Route exact path="/dashboard" component={Dashboard} />
           <Route path="/competitions/:id" component={CompetitionsDetails} />
           <PrivateRoute exact path="/cart" component={Cart} />
-          {/* <Route exact path="/live-draw/" component={LiveDrawList} /> */}
+          <Route exact path="/live-draw/" component={LiveDrawList} />
           <Route exact path="/live-draw/:id" component={LiveDraw} />
         </Switch>
       </Layout>
     </>
   );
 }
+const mapStateToProps = (state) => {
+  return {
+    isLoggedIn: state.auth.isLoggedIn,
+  };
+};
 
-export default App;
+const mapDispatchToProps = {
+  fetchCart,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);

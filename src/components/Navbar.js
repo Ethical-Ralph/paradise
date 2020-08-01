@@ -5,8 +5,9 @@ import { connect } from "react-redux";
 import Nav from "react-bootstrap/Nav";
 import Container from "react-bootstrap/Container";
 import logo from "../assets/imgs/palmtree.png";
+import cartImg from "../assets/imgs/cart.png";
 
-const Navigation = ({ cartLength }) => {
+const Navigation = ({ cartLength, isLoggedIn }) => {
   return (
     <header class="blog-header py-2">
       <div class="row flex-nowrap justify-content-between align-items-center mb-5">
@@ -53,10 +54,41 @@ const Navigation = ({ cartLength }) => {
                 </Link>
               </li>
               <li class="nav-item">
-                <Link class="nav-link" to="'podium">
+                <Link class="nav-link" to="podium">
                   Podium
                 </Link>
               </li>
+              {isLoggedIn ? (
+                <li class="nav-item">
+                  <Link class="nav-link" to="/cart">
+                    <img
+                      width={"25px"}
+                      height={"25px"}
+                      src={cartImg}
+                      alt="cart"
+                    />
+                    {cartLength}
+                  </Link>
+                </li>
+              ) : (
+                <li class="nav-item">
+                  <div class="mt-2 mt-md-0">
+                    <Link to="/login">
+                      <button
+                        class="btn btn-success rounded-curve"
+                        type="submit"
+                      >
+                        Client Login
+                      </button>
+                    </Link>
+                    <Link to="/register">
+                      <button class="btn btn-light rounded-curve" type="submit">
+                        Register
+                      </button>
+                    </Link>
+                  </div>
+                </li>
+              )}
               {/* <li class="nav-item dropdown">
                 <Link
                   className="nav-link dropdown-toggle mr-md-2"
@@ -95,18 +127,6 @@ const Navigation = ({ cartLength }) => {
                 </div>
               </li>*/}
             </ul>
-            <div class="mt-2 mt-md-0">
-              <Link to="/login">
-                <button class="btn btn-success rounded-curve" type="submit">
-                  Client Login
-                </button>
-              </Link>
-              <Link to="/register">
-                <button class="btn btn-light rounded-curve" type="submit">
-                  Register
-                </button>
-              </Link>
-            </div>
           </div>
         </nav>
       </div>
@@ -116,6 +136,7 @@ const Navigation = ({ cartLength }) => {
 
 const mapStateToProps = (state) => {
   return {
+    isLoggedIn: state.auth.isLoggedIn,
     cartLength: state.cart.cart_items.length,
   };
 };

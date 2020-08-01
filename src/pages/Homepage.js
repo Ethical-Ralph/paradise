@@ -8,9 +8,9 @@ import GiftShop from "../components/GiftShop";
 import * as tokenService from "../Utils/tokenService";
 
 const Homepage = () => {
-  useEffect(() => {
-    tokenService.removeToken();
-  }, []);
+  // useEffect(() => {
+  //   tokenService.removeToken();
+  // }, []);
   return (
     <>
       <Carousel />

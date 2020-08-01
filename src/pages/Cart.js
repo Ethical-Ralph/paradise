@@ -6,13 +6,13 @@ import { Table } from "react-bootstrap";
 const Cart = ({ cart, fetchCart, removeCompetition }) => {
   useEffect(() => {
     fetchCart();
-    console.log(cart.length, "ffff");
+    alert("Please checkout within 10 minutes or your cart will be deleted");
   }, []);
 
   useEffect(() => {
     const autoRemove = setInterval(() => {
       for (var i = 0; i < cart.length; i++) {
-        const itemExpTime = new Date(cart[i].date_added).setMinutes(3);
+        const itemExpTime = new Date(cart[i].date_added).setMinutes(10);
         const currentTime = new Date().getTime();
         console.log(itemExpTime <= currentTime);
         if (itemExpTime <= currentTime) {
